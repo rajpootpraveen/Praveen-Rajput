@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   <h2>Change the src attribute of an img element</h2>
+   <img src =  "praveen.jpg" id = "image"> <br> <br>
+   <button id = "btn" onclick = "changeSrc()">Click to change the Image</button>
+   <p id = "result"> </p>
+   <script>
+      var result = document.getElementById("result");
+      var upper = document.getElementById("upper");
+      function changeSrc() {
+         var img = document.getElementById('image');
+         if (img.src == "") {
+            img.src = "";
+            result.innerHTML += " The src of above img is changed from <b> Link 1 </b> to " + " <b> Link 2 </b> <br>";
+         }
+         else {
+            img.src = "praveen2.jpg";
+            result.innerHTML += " The src of above img is changed from <b> Link 2 </b> to " + " <b> Link 1 </b> <br>";
+         }
+         upper.innerHTML = " The image shown previously is replaced by some other image as <b> src attribute of img is changed. </b> <br> ";
+         
+      }
+   </script>
+</body>
+</html>

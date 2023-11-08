@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <style>
+    img {
+        width: 300px;
+        height: 200px;
+        object-fit: cover;
+    }
+    button {
+        margin-left: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: black;
+        color: white;
+    }
+    body{
+      background-color: bisque;
+    }
+</style>
+
+  <img id="myImg" src="praveen3.jpg" alt="Image">
+  <button id="myButton">Click</button>
+
+  <script>
+      const images = ['praveen2.jpg', 'praveen3.jpg', 'praveen2.jpg', 'praveen3.jpg'];
+      const imgElement = document.getElementById('myImg');
+      const button = document.getElementById('myButton');
+      let imgIndex = 1;
+
+      button.addEventListener('click', () => {
+          if (imgIndex < images.length) {
+              imgElement.src = images[imgIndex];
+              imgIndex++;
+          } else {
+              imgIndex = 0;
+              imgElement.src = images[imgIndex];
+              imgIndex++;
+          }
+      });
+  </script>
+</body>
+</html>

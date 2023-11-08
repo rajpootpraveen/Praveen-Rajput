@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculater</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/12.0.0/math.js" integrity="sha512-rffRpOvP8/vOkbpVUpjesEh2AI40+pNcMh0LAAdOKBE96pLnJh1IGKGhu/RL5lrmW8fA9p5ph5GkCOlMNXr3eg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/12.0.0/math.min.js" integrity="sha512-eP0ts2A1DdhciB/Ug0EGQ4YAF9Y8pF1Ynl8oPFdO7BiK/RUDqqYi+Y5ij8oQDbUxqTITyDEsRMJnU25wWrUm5w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        table{
+            border: 2px solid rgb(158, 6, 229);
+            margin-left: auto;
+            margin-right: auto;
+        }
+        input[type="button"]{
+            width: 100%;
+            padding: 20px 40px;
+            background-color: rgb(22, 172, 32);
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            border: none;border-radius: 5px;
+        }
+        input[type="text"]{
+            padding: 20px 40px;
+            border: 3px solid rgb(0, 0, 0);
+            width: 70%;
+            height: 24px;
+            background-color: rgb(244, 163, 12);
+        }
+        body{
+            background-color: rgb(0, 0, 0);
+        }
+
+        
+    </style>
+</head>
+<body>
+       <table id="calcu">
+        <tr>
+            <td colspan="3"><input type="text"  id="result"></td>
+            <td><input type="button" value="C" onclick="clr()"></td>
+            
+        </tr>
+
+        <tr>
+            <td><input type="button" value="1" onclick="dis('1')" onkeydown="myfunction(event)"></td>
+            <td><input type="button" value="2" onclick="dis('2')" onkeydown="myfunction(event)"></td>
+            <td><input type="button" value="3" onclick="dis('3')" onkeydown="myfunction(event)"></td>
+            <td><input type="button" value="/" onclick="dis('/')" onkeydown="myfunction(event)"></td>
+        </tr>
+
+        <tr>
+            <td><input type="button" value="4" onclick="dis('4')" onkeydown="myfunction(event)"></td>
+            <td><input type="button" value="5" onclick="dis('5')" onkeydown="myfunction(event)"></td>
+            <td><input type="button" value="6" onclick="dis('6')" onkeydown="myfunction(event)"></td>
+            <td><input type="button" value="*" onclick="dis('*')"onkeydown="myfunction(event)"></td>
+        </tr>
+
+        <tr>
+            <td><input type="button" value="7" onclick="dis('7')" onkeydown="myfunction(event)"></td>
+            <td><input type="button" value="8" onclick="dis('8')" onkeydown="myfunction(event)"></td>
+            <td><input type="button" value="9" onclick="dis('9')" onkeydown="myfunction(event)"></td>
+            <td><input type="button" value="-" onclick="dis('-')" onkeydown="myfunction(event)"></td>
+        </tr>
+
+        <tr>
+            <td><input type="button" value="0" onclick="dis('0')" onkeydown="myfunction(event)"></td>
+            <td><input type="button" value="." onclick="dis('.')"onkeydown="myfunction(event)"></td>
+            <td><input type="button" value="=" onkeydown="solve()"></td>
+            <td><input type="button" value="+" onclick="dis('+')" onkeydown="myfunction(event)"></td>
+        </tr>
+        
+    </table>
+
+    <script>
+        function clr()
+        {
+            document.getElementById("result").value="";
+        }
+
+        function dis(val)
+        {
+            document.getElementById("result").value+=val;
+        }
+
+        function myfunction(event)
+        {
+        if(event.key=='0' || event.key=='1'
+            || event.key=='2' || event.key=='3'
+            || event.key=='4' || event.key=='5'
+            || event.key=='6' || event.key=='7'
+            || event.key=='8' || event.key=='9'
+            || event.key=='+' || event.key=='/'
+            || event.key=='-' || event.key=='*')
+        
+             document.getElementById("result").value += event.key;
+        }
+        var cal=document.getElementById("calcu");
+cal.onkeyup=function (event){
+    if(event.keyCode===13)
+    {
+        console.log("Enter");
+        let x = document.getElementById("result").value;
+        console.log(x);
+        solve();
+    }
+}
+
+function solve()
+{
+    let x = document.getElementById("result").value;
+    let y = math.evaluate(x);
+    document.getElementById("result").value=y;
+}
+    </script>
+</body>
+</html>
